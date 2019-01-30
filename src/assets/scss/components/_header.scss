@@ -1,0 +1,47 @@
+// LOGO
+.logo {
+  width: 140px;
+  height: auto;
+}
+
+
+.main-nav {
+
+  border-bottom: 1px solid $light-gray;
+
+  &__contacts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    margin-right: 1rem;
+  }
+
+  &__icon {
+    color: $primary;
+  }
+
+  &__burger {
+    background: none;
+    cursor: pointer;
+    border: 2px solid $black;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+
+
+.overflow-y {
+  overflow-y: hidden;
+}
