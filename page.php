@@ -23,8 +23,8 @@
           // thumbnail
           $size = 'page_doc_thumb';
           $thumb = $image['sizes'][ $size ];
-          // $width = $image['sizes'][ $size . '-width' ];
-          // $height = $image['sizes'][ $size . '-height' ];
+          $width = $image['sizes'][ $size . '-width' ];
+          $height = $image['sizes'][ $size . '-height' ];
                   
           ?>
           <div class="slider-controls__box">
@@ -49,12 +49,28 @@
         // check if the repeater field has rows of data
         if( have_rows('page_slider') ):
             // loop through the rows of data
-            while ( have_rows('page_slider') ) : the_row(); ?>
+            while ( have_rows('page_slider') ) : the_row();
+            
+                        
+          $fullImage = get_sub_field('page_doc_photo');
+
+          // vars
+          $url =  $fullImage['url'];
+          $title =  $fullImage['title'];
+          $alt =  $fullImage['alt'];
+
+          // thumbnail
+          $fullSize = 'page_doc_main';
+          $mainDoc = $fullImage['sizes'][ $fullSize ];
+          // $width = $fullImage['sizes'][ $fullSize . '-width' ];
+          // $height = $fullImage['sizes'][ $fullSize . '-height' ];
+            
+            ?>
         <!-- slide -->
             <div class="slide">
               <div class="doc-card-page">
                 <div class="doc-card-page__imgholder">
-                  <img src="<?php echo the_sub_field('page_doc_photo'); ?>" alt="">
+                  <img  src="<?php echo $mainDoc; ?>" alt="<?php echo $alt; ?>" />
                 </div>
                 <div class="doc-card-page__inner">
                 <!-- content -->
@@ -65,15 +81,21 @@
                     </div>
                     <span class="doc-card-page__price">прием от: <?php echo the_sub_field('page_doc_price'); ?>р</span>
                     <div>
-                      <span class="doc-card-page__feature"><span class="icon-expirience  doc-card-page__icon"></span><?php echo the_sub_field('page_doc_exp'); ?> лет опыта</span>
-                      <?php if(get_sub_field('page_doc_kids')) : ?>                   
-                      <span class="doc-card-page__feature"><span class="icon-kids-doctor doc-card-page__icon"></span>принимает пиздюков</span>
-                      <?php endif; ?>
+                      <ul class="doc-card-page__list">
+                        <li class="doc-card-page__listitem">
+                          <span class="doc-card-page__feature"><span class="icon-expirience  doc-card-page__icon"></span><?php echo the_sub_field('page_doc_exp'); ?> лет опыта</span>
+                        </li>  
+                        <?php if(get_sub_field('page_doc_kids')) : ?>      
+                        <li class="doc-card-page__listitem">          
+                          <span class="doc-card-page__feature"><span class="icon-kids-doctor doc-card-page__icon"></span>принимает детей</span>
+                        </li>  
+                        <?php endif; ?>
+                      </ul>
                     </div>
                   </div>
                 <!-- end content -->
                   <div class="doc-card-page__footer">
-                      <button class="button button--page-doc doc-card-page__button"  data-micromodal-trigger="modal">Запись на прием</button>
+                      <a href="#" class="button button--page-doc doc-card-page__button"  data-micromodal-trigger="modal">Запись на прием</a>
                       <span class="doc-card-page__phone" >Запись по телефону:  <?php echo get_field('header_phone', 'options'); ?></span>
                   </div>
                 </div>

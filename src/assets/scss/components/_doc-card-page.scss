@@ -6,6 +6,7 @@
 .doc-card-page {
   display: flex;
   border: 1px solid $light-gray;
+  width: 100%;
 
 
   &__inner {
@@ -45,13 +46,18 @@
     margin-bottom: 2.5rem;
    }
 
+   &__list {
+     margin: 0;
+     padding: 0;
+     list-style: none;
+     display: flex;
+   }
+
   &__footer {
     margin-top: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-  
+    justify-content: space-between;  
 
   }
 
@@ -67,6 +73,7 @@
     align-items: center;
     background: $light-gray;
     align-self: stretch;
+    padding: 1rem;
   }
 
   &__feature {
@@ -84,6 +91,19 @@
 
 // MEDIAQ
 
+      
+@include media-breakpoint-down(md) { 
+  .doc-card-page {
+    flex-direction: column; 
+  }
+}
+
+      
+@include media-breakpoint-down(md) { 
+  .doc-card-page__imgholder {
+    display: none;
+  }
+}
       
 @include media-breakpoint-down(md) { 
   .doc-card-page__footer {

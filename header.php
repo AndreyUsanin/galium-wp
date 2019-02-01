@@ -9,12 +9,28 @@
 </head>
 <body>
 
+<section class="top-nav">
+    <div class="container">
+        <ul class="top-nav__contacts">
+            <li class="top-nav__item">
+                <span class="icon-phone top-nav__icon"></span>
+                <?php echo get_field('header_adress', 'options'); ?>
+            </li>
+            <li class="top-nav__item">
+                <span class="icon-location top-nav__icon"></span>
+                <?php echo get_field('header_phone', 'options'); ?>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
 <div class="page-overlay"></div> <!-- page overlay --> 
 <div class="offside__container">  <!-- offside container -->
     <nav class="main-nav">
-        <div class="container  p-4">
+        <div class="container p-4">
             <div class="row align-items-center">
-                <div class="col-sm-4">
+                <div class="col-md-4 col-sm-6 w-50">
                     <div class="logo-wrp">
                         <?php $logo = get_field('logo', 'options'); 
                         if ($logo) : ?>
@@ -22,8 +38,8 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-sm-8 justify-content-around">
-                    <div class="d-flex justify-content-between">
+                <div class="col-md-8 col-sm-6 justify-content-around  w-50">
+                    <div class="main-nav-wrp">
                         <ul class="main-nav__contacts">
                             <li class="main-nav__item">
                                 <span class="icon-phone main-nav__icon"></span>
