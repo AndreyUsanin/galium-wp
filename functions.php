@@ -7,7 +7,7 @@ require_once('lib/enqueue-assets.php');
 function theme_features(){
   add_theme_support('title-tag');
 	add_theme_support('post-thumbnails');
-	add_image_size('page_doc_main', 200, 400, true);
+	add_image_size('page_doc_main', 300, 400, true);
 	add_image_size('page_doc_thumb', 150, 150, true);
   register_nav_menu('mainMenuLocation', 'Main Menu');
 }

@@ -83,28 +83,7 @@
 
 <section class="price-area">
   <div class="container">
-    <?php if(is_page(43)) { ?>
-    <ul class="tabs__nav">
-      <li>
-        <a href="#tab_1" class="tabs__link is-active">
-          <h3>УЗИ Взрослым</h3>
-        </a>
-      </li>
-      <li>
-        <a href="#tab_2" class="tabs__link">
-          <h3>Детям</h3>
-        </a>
-      </li>
-    </ul>
-    <div class="tabs__content">
-      <div id="tab_1" class="tabs__item is-visible">
-        <?php echo supsystic_tables_get(1); ?>
-      </div>
-      <div id="tab_2" class="tabs__item">
-        <?php echo do_shortcode("[supsystic-tables id=2]"); ?>
-      </div>
-    </div>
-    <?php } ?>
+  <?php echo get_field('price_table'); ?>
   </div>
 </section>
 

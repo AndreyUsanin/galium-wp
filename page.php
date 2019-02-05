@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<?php echo the_field('test'); ?>
 <div class="container">
 </div>
 <section class="frontpage-slider">
@@ -116,12 +116,14 @@
   </div>
 </section>
 
+
 <div class="container">
   <div class="napr-info">
     <div class="napr-info__inner">
       <span class="icon-info-circle napr-info__icon"></span>
       <p>
         <?php echo get_field('page_info'); ?>
+        <?php echo get_field('test'); ?>
       </p>
     </div>
   </div>
@@ -149,7 +151,7 @@
 
 <section class="price-area">
   <div class="container">
-    <?php if(is_page(43)) { ?>
+    <?php if(is_page(43)) : ?>
     <ul class="tabs__nav">
       <li>
         <a href="#tab_1" class="tabs__link is-active">
@@ -158,7 +160,7 @@
       </li>
       <li>
         <a href="#tab_2" class="tabs__link">
-          <h3>Детям</h3>
+          <h3>УЗИ Детям</h3>
         </a>
       </li>
     </ul>
@@ -167,10 +169,19 @@
         <?php echo supsystic_tables_get(1); ?>
       </div>
       <div id="tab_2" class="tabs__item">
-        <?php echo do_shortcode("[supsystic-tables id=2]"); ?>
+        <?php echo do_shortcode("[supsystic-tables id=3]"); ?>
       </div>
     </div>
-    <?php } ?>
+    <?php  else :
+   echo get_field('price_table');
+       ?>
+
+       <?php
+      endif;
+    ?>
+
+
+
   </div>
 </section>
 
