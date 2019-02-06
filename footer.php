@@ -50,9 +50,11 @@
 </section>
 </div> <!-- offside container -->
 <div class="offside-menu">
-    <?php wp_nav_menu(array(
-                'theme_location' => 'mainMenuLocation'
-            )); ?>
+    <?php
+    wp_nav_menu(array(
+    'theme_location' => 'sideMenuLocation',
+    'menu_class' => 'side-menu'
+    )); ?>
 </div>
 <?php wp_footer(); ?>
 </body>

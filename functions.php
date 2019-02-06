@@ -10,6 +10,7 @@ function theme_features(){
 	add_image_size('page_doc_main', 300, 400, true);
 	add_image_size('page_doc_thumb', 150, 150, true);
   register_nav_menu('mainMenuLocation', 'Main Menu');
+  register_nav_menu('sideMenuLocation', 'Side Menu');
 }
 
 add_action('after_setup_theme', 'theme_features');

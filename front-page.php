@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-lg-4 d-none d-none d-lg-block">
             <img class="maindoc" src="<?php echo get_field('mainimg')['sizes']['medium_large']; ?>" alt="">
         </div>
-        <div class="col-sm-4">
+        <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="napr-card">
                 <div class="d-flex align-items-center mb-4"> 
                     <div class="napr-card__iconbox mr-4"> 
@@ -13,14 +13,14 @@
                     </div> 
                     <h1 class="napr-card__title">Записаться на прием</h1> 
                 </div>
-                <?php wp_nav_menu(array(
+                <?php
+                    wp_nav_menu(array(
                     'theme_location' => 'mainMenuLocation',
                     'menu_class' => 'napr-card__list'
                 )); ?>
             </div>
         </div>
-        <div class="col-sm-4">
-
+        <div class="col-lg-4 col-md-6 col-sm-12">  
              <div class="napr-card mb-4">
                 <div class="d-flex align-items-center mb-4"> 
                     <div class="napr-card__iconbox mr-4"> 
@@ -43,7 +43,7 @@
                 </div>
                 <div>
                     <p>Более 1000 видов анализов. Результаты на следующее утро.</p>
-                    <a href="<?php echo site_url('/uzi-tambov'); ?>">Подробнее</a>
+                    <a href="<?php echo site_url('/lab-researc-2'); ?>">Подробнее</a>
                 </div>
              </div>   
         </div>
@@ -92,14 +92,25 @@
                 if( have_rows('slider') ):
 
                     // loop through the rows of data
-                    while ( have_rows('slider') ) : the_row(); ?>                   
+                    while ( have_rows('slider') ) : the_row();
+                    $fullImage = get_sub_field('doc_photo');
+
+                    // vars
+                    $url =  $fullImage['url'];
+                    $title =  $fullImage['title'];
+                    $alt =  $fullImage['alt'];
+          
+                    // thumbnail
+                    $fullSize = 'page_doc_main';
+                    $mainDoc = $fullImage['sizes'][ $fullSize ];    
+                    ?>                   
 
                        <div class="slide">
 
                         <div class="doc-card">
 
                             <div class="doc-card__rel">
-                                <div class="doc-card__imageholder" style="background-image: url(<?php echo the_sub_field('doc_photo') ?>">
+                                <div class="doc-card__imageholder" style="background-image: url(<?php echo  $mainDoc  ?>)">
                                     <!-- <img src="" alt=""> -->
                                 </div>
                                 <h2 class="doc-card__name"><?php echo the_sub_field('doc_name'); ?></h2>

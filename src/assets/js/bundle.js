@@ -3,7 +3,7 @@ import { tns } from '../../../node_modules/tiny-slider/src/tiny-slider';
 import offside from "offside-js";
 import MicroModal from 'micromodal'; 
 import './components/docs.js';
-import { get } from 'http';
+
 
 
 // TINY SLIDER
@@ -106,12 +106,13 @@ window.onload = function () {
 // MICROMODAL
 MicroModal.init();
 
+if(document.getElementById('modal')) {
 
-document.addEventListener( 'wpcf7submit', function( event ) {
-  const modal = document.getElementById('modal');
-  modal.classList.remove('is-open');
-}, false );
-
+  document.addEventListener( 'wpcf7submit', function( event ) {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('is-open');
+  }, false );
+}
 
 // document.body.addEventListener('click', function(e){
 

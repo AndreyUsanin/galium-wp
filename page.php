@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php echo the_field('test'); ?>
 <div class="container">
 </div>
 <section class="frontpage-slider">
