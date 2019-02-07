@@ -2,9 +2,25 @@ import $ from 'jquery';
 import { tns } from '../../../node_modules/tiny-slider/src/tiny-slider';
 import offside from "offside-js";
 import MicroModal from 'micromodal'; 
+import Rellax from 'rellax'; 
 import './components/docs.js';
 
+// RELAX PARALLAX
 
+
+
+if (document.querySelector(".rellax")) {
+var rellax = new Rellax('.rellax', {
+  speed: -2,
+  center: false,
+  // wrapper: '.rellax-wrp',
+  round: true,
+  vertical: true,
+});
+}
+
+
+// console.log(rellax);
 
 // TINY SLIDER
 
